@@ -89,6 +89,7 @@ defmodule Dist do
 
 end
 
+
 ##############################################################################################
 # resultado esperado 1: a = -0.46875  ,   b = 89.0625
 #IO.inspect(MinimosQuadraticos.calcular(pontos1))

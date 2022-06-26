@@ -57,5 +57,4 @@ def executar(M, tolerancia, count) do
   executar(M, tolerancia, count - 1)
 end
 
-
 end
