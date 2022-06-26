@@ -1,0 +1,9 @@
+TimeThis :  Command Line :  elixir minimos_quadraticos.exs
+TimeThis :    Start Time :  Wed Jul 10 17:49:54 2019
+TimeThis :      End Time :  Wed Jul 10 17:49:55 2019
+TimeThis :  Elapsed Time :  00:00:00.765
+
+TimeThis :  Command Line :  python split.py
+TimeThis :    Start Time :  Wed Jul 10 17:49:58 2019
+TimeThis :      End Time :  Wed Jul 10 17:49:58 2019
+TimeThis :  Elapsed Time :  00:00:00.171

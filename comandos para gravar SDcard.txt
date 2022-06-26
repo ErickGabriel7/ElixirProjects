@@ -1,0 +1,5 @@
+mix do deps.get, firmware, firmware.burn
+
+cp _build/rpi3/rpi3_dev/nerves/images/hello_gpio.fw /mnt/c/Users/"Erick Gabriel"/Desktop 
+
+fwup nomedoarquivo.fw

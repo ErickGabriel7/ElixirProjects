@@ -1,0 +1,39 @@
+      cond do
+        (length(p0) == 1) and (length(p1) == 1) ->
+          m
+        (length(p0) != 1) and (length(p1) == 1) ->
+          IO.puts("e")
+          if (tolerancia < calcularDistancia(valor_dMax(p0),MinimosQuadraticos.calcular(p0))) do
+            [split_loop(p0, tolerancia), p1]
+          else
+            m
+          end
+        (length(p0) == 1) and (length(p1) != 1) ->
+          IO.puts("c")
+          IO.inspect(m)
+          #condicao que compara a tolerancia com a distancia do ponto mais afastado da reta
+          if (tolerancia < calcularDistancia(valor_dMax(p1),MinimosQuadraticos.calcular(p1))) do
+            IO.puts("d")
+            IO.inspect(p1)
+            [p0, split_loop(p1,tolerancia)]
+          else
+            m
+          end
+        (length(p0) != 1) and (length(p1) != 1) ->
+          IO.puts("f")
+          #IO.inspect(m)
+          IO.inspect(p0)
+          IO.inspect(p1)
+          cond do
+            tolerancia <= calcularDistancia(valor_dMax(p0),MinimosQuadraticos.calcular(p0)) and tolerancia <= calcularDistancia(valor_dMax(p1),MinimosQuadraticos.calcular(p1)) ->
+              IO.puts("asdfsa")
+              [split_loop(p0, tolerancia), split_loop(p1, tolerancia)]
+            (tolerancia <= calcularDistancia(valor_dMax(p0),MinimosQuadraticos.calcular(p0))) and (tolerancia >= calcularDistancia(valor_dMax(p1),MinimosQuadraticos.calcular(p1))) ->
+              [split_loop(p0, tolerancia), p1]
+            (tolerancia >= calcularDistancia(valor_dMax(p0),MinimosQuadraticos.calcular(p0))) and (tolerancia <= calcularDistancia(valor_dMax(p1),MinimosQuadraticos.calcular(p1))) ->
+              [p0, split_loop(p1,tolerancia)]
+            (tolerancia >= calcularDistancia(valor_dMax(p0),MinimosQuadraticos.calcular(p0))) and (tolerancia >= calcularDistancia(valor_dMax(p1),MinimosQuadraticos.calcular(p1))) ->
+              m
+
+
+        end

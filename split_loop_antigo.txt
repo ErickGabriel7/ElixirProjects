@@ -1,0 +1,45 @@
+def split_loop(pontos,tolerancia) do
+    M = dividir(pontos)
+    min = Enum.min(Enum.map(M, fn x -> calcularDistancia(dMax(x),x) end))       #variavel que pega a menor distancia entre a maior dMax e a reta correspondente (para ser comparado com a tolerancia)
+    count = length(M)                                                           #ve o numero de retas ja existentes
+    if ((tolerancia > min) and (count > 1)) do
+      count = count - 1                                                         #como essa variavel sera usada para indice, comecaremos de 0 e iremos ate count-1
+      executar(M, tolerancia, count)
+    else
+      M
+    end
+  end
+
+  #artificio da funcao recursiva
+  def executar(M, tolerancia, count) when count <= 0 do
+    split_loop(Enum.at(M,count), tolerancia)                                    #no final, teremos os termos invertidos, pois comecamos do maior indice
+    #reordenando os termos (colocando de M[0] ate M[cont-1])
+    Enum.reverse_slice(M,0,(count-1))
+  end
+
+  def executar(M, tolerancia, count) do
+    split_loop(Enum.at(M,count), tolerancia)
+    executar(M, tolerancia, count - 1)
+  end
+
+
+end
+
+
+____________________________________________________________
+  def split_loop(pontos,tolerancia) do
+    m = dividir(pontos)
+    min = Enum.min(Enum.map(m, fn x -> calcularDistancia(dMax(x),x) end))       #variavel que pega a menor distancia entre a maior dMax e a reta correspondente (para ser comparado com a tolerancia)
+    #count = length(M)                                                           #ve o numero de retas ja existentes
+    if (tolerancia > min) do
+      #count = count - 1                                                         #como essa variavel sera usada para indice, comecaremos de 0 e iremos ate count-1
+      p0 = Enum.fetch!(m,0)
+      p1 = Enum.fetch!(m,1)
+      [split_loop(p0,tolerancia), split_loop(p1,tolerancia)]
+    else
+      m
+    end
+  end
+
+end
+
